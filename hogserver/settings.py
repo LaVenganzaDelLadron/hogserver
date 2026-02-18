@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -73,17 +76,11 @@ WSGI_APPLICATION = 'hogserver.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-import os
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('smarthogweb'),
-        'USER': os.environ.get('smarthogweb_user'),
-        'PASSWORD': os.environ.get('eY44GKWN2OY6arhhTlvCI4HWJ6Wl4ucC'),
-        'HOST': os.environ.get('dpg-d6ana4ngi27c73d6nad0-a'),
-        'PORT': os.environ.get('5432'),
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('postgresql://smarthogweb_user:eY44GKWN2OY6arhhTlvCI4HWJ6Wl4ucC@dpg-d6ana4ngi27c73d6nad0-a.singapore-postgres.render.com/smarthogweb')
+    )
 }
 
 
