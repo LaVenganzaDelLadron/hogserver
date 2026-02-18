@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'hogserver.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('postgresql://smarthogweb_user:eY44GKWN2OY6arhhTlvCI4HWJ6Wl4ucC@dpg-d6ana4ngi27c73d6nad0-a.singapore-postgres.render.com/smarthogweb')
+        default=os.environ.get('postgresql://smarthogweb_user:eY44GKWN2OY6arhhTlvCI4HWJ6Wl4ucC@dpg-d6ana4ngi27c73d6nad0-a/smarthogweb')
     )
 }
 
