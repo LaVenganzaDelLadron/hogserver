@@ -73,16 +73,19 @@ WSGI_APPLICATION = 'hogserver.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hogdb',
-        'USER': 'root',
-        'PASSWORD': 'glitcher',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('smarthogweb'),
+        'USER': os.environ.get('smarthogweb_user'),
+        'PASSWORD': os.environ.get('eY44GKWN2OY6arhhTlvCI4HWJ6Wl4ucC'),
+        'HOST': os.environ.get('dpg-d6ana4ngi27c73d6nad0-a'),
+        'PORT': os.environ.get('5432'),
     }
 }
+
 
 
 # Password validation
