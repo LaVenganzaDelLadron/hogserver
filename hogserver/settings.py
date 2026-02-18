@@ -29,7 +29,9 @@ SECRET_KEY = 'django-insecure-z8^31e5jzq7^!u)%5z&2$nk@$et5frv^%@69@9n=&9k^+3kn-@
 DEBUG = True
 
 ALLOWED_HOSTS = ['hogserver.onrender.com']
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://hogserver.onrender.com',
+]
 
 # Application definition
 
@@ -78,10 +80,16 @@ WSGI_APPLICATION = 'hogserver.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL', 'postgresql://smarthogweb_user:eY44GKWN2OY6arhhTlvCI4HWJ6Wl4ucC@dpg-d6ana4ngi27c73d6nad0-a/smarthogweb')
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'smarthogweb',
+        'USER': 'smarthogweb_user',
+        'PASSWORD': 'eY44GKWN2OY6arhhTlvCI4HWJ6Wl4ucC',
+        'HOST': 'dpg-d6ana4ngi27c73d6nad0-a.singapore-postgres.render.com',
+        'PORT': '5432',
+    }
 }
+
 
 
 
